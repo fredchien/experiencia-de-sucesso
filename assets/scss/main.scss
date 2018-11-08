@@ -1,0 +1,1067 @@
+/******************** FONTS ********************/
+@import url('https://fonts.googleapis.com/css?family=Spectral:200,400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+/******************** VARS ********************/
+
+$verde: #768b39;
+$white: #fff;
+$black: #000;
+$Azul: #00ded5;
+$Cinza: #ebebeb;
+$Amarelo: #f9af40;
+
+$text: #3a3a3c;
+
+$Open: 'Open Sans', sans-serif;
+$Spectral: 'Spectral', serif;
+/******************** BASE ********************/
+
+* { outline: transparent; }
+
+html, body {
+    color: $text;
+    min-width: 320px;
+
+    font-family: $Open;
+    font-size: 16px;
+
+    // line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $Open;
+    margin-bottom: 30px;
+    margin-top: 0;
+
+    font-weight: 800;
+}
+
+h1 { font-size: 60px; }
+h2 { font-size: 48px; }
+h3 { font-size: 36px; }
+h6 { font-size: 16px; }
+
+a {
+    color: $text;
+    text-decoration: none !important;
+    transition: color .2s ease-in-out, background .2s ease-in-out;
+    &:hover{
+        color: $Amarelo;
+    }
+}
+p{
+  line-height: 25px;
+  font-family: $Open;
+  font-weight: 300;
+}
+p:last-child { margin-bottom: 0; }
+
+section {
+    padding: 60px 0;
+}
+
+$tTime: .2s;
+
+
+/******************** CLASSES ********************/
+.nopadding { padding: 0; }
+
+.row.rowflex { display: flex; }
+@media (min-width: 768px) { .row.rowflex-sm { display: flex; } }
+@media (min-width: 992px) { .row.rowflex-md { display: flex; } }
+@media (min-width: 1200px) { .row.rowflex-lg { display: flex; } }
+
+// figures
+
+figure.fit {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.text-center{
+  text-align: center;
+}
+.clear{
+  clear: both;
+}
+.no-padding {
+    padding: 0 !important;
+}
+
+.btn-green{
+    background: $verde;
+    color: $white;
+    border-radius: 0;
+    padding: 8px 40px;
+    font-size: 16px;
+}
+.btn-yellow{
+    background: $Amarelo;
+    color: $black;
+    border-radius: 0;
+    padding: 8px 40px;
+    font-size: 16px;
+}
+
+/******************** HEADER ********************/
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    z-index: 10;
+
+    nav {
+        background: $white;
+
+        position: relative;
+
+        padding: 15px 0;
+
+        z-index: 10;
+
+        .menu-container {
+            display: flex;
+            align-items: center;
+
+            position: initial;
+
+            font-family: $Open;
+            font-size: 12px;
+            text-transform: uppercase;
+
+            .menu-btn {
+                vertical-align: middle;
+
+                .namemenu{
+                    position: absolute;
+                    top: 19px;
+                    font-size: 11px;
+                }
+
+                .menu-bars {
+                    vertical-align: middle;
+
+                    background: $verde;
+                    display: inline-block;
+                    position: relative;
+                    height: 3px;
+                    width: 32px;
+
+                    margin-right: 10px;
+
+                    transition: background $tTime ease-in-out 0s, transform .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+                    &:before, &:after {
+                        content: '';
+                        background: $verde;
+                        display: block;
+                        position: absolute;
+                        height: 3px;
+                        width: 100%;
+                    }
+
+                    &:before {
+                        top: -5px;
+                        transition-property: top, transform, background;
+                        transition-duration: .3s, .3s, $tTime;
+                        transition-delay: .3s, 0s, 0s;
+                        transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+                    }
+                    &:after {
+                        bottom: -5px;
+                        // transition-property: bottom, transform, background;
+                        // transition-duration: .3s, .3s, $tTime;
+                        // transition-delay: .3s, 0s, 0s;
+                        // transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+                    }
+                } // toggle
+
+            }
+
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .social-icon {
+                margin: 0 10px;
+                background-color: $verde;
+                color: $white;
+                padding: 5px;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                &:hover{
+                    background-color: $Amarelo;
+                }
+            }
+        }
+
+        .logo {
+            // text-align: center;
+
+            .brand img {
+                height: 56px;
+
+                transition: height .4s ease-in-out;
+            }
+        }
+    }
+
+    #menu {
+        color: $text;
+        background: #1d1d1b;
+
+        position: absolute;
+        left: 0;
+        top: 100%;
+
+        width: 100%;
+
+        padding: 45px 0;
+
+        box-shadow: 0 0 8px rgba(0,0,0,.4);
+
+        transform: translateY(-102%);
+
+        transition: transform .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+        .tab-content{
+            p{
+                color: #858585;
+            }
+            .btn-green{
+                margin-top: 20px;
+            }
+            .item{
+                background: $white;
+                .conteudo{
+                    text-align: center;
+                    padding: 15px;
+                    .titulo{
+                        font-family: $Open;
+                        font-weight: 700;
+                        font-size: 17px;
+                        margin-bottom: 5px;
+                    }
+                    span{
+                        color: $verde;
+                        font-family: $Spectral;
+                        font-style: italic;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    .date{
+                        color: #777777;
+                        font-size: 14px;
+                        font-family: $Open;
+                    }
+                    hr{
+                        width: 15%;
+                        border-top-width: 3px;
+                    }
+                }
+            }
+            figure.fit{
+                padding-bottom: 75%;
+            }
+        }
+
+
+        .menu-list {
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                font-family: $Open;
+                font-size: 18px;
+                line-height: 2.1;
+
+                & > li {
+                    border-bottom: solid 1px #858585;
+                    a{
+                        color: $white;
+                    }
+                    &.active {
+                        a{
+                            color: $verde;
+                            font-weight: 700;
+                        }
+                        &:after{
+                            content: ">";
+                            margin-left: 30px;
+                            color: $verde;
+                            position: absolute;
+                            right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-div {
+            .sep {
+                width: 0;
+                height: 100%;
+                border-left: 1px solid $verde;
+
+                margin: 0 auto;
+            }
+        }
+
+        .menu-noticias {
+            font-family: $Open;
+            font-size: 16px;
+            text-transform: initial;
+
+            .noticia-lg, .noticia {
+                margin-bottom: 45px;
+
+                figure.fit, .video-container {
+                    margin-bottom: 10px;
+                }
+                .titulo {
+                    margin-bottom: 0;
+                    font-weight: 600;
+                }
+            }
+
+        }
+
+        .menu-social {
+            color: $verde;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px 0;
+            a{
+                color: $verde;
+            }
+
+            .social-icon {
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+#header.open {
+    nav .menu-container .menu-btn .menu-bars { 
+        // transform: rotate(90deg); 
+
+        &:after{
+         font-family: sans-serif;
+        font-weight: 100;
+        content: 'X';
+        width: 36px;
+        height: 36px;
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -11px;
+        font-size: 16px;
+        padding-left: 1px;
+        color: $verde; 
+        background-color: white;  
+        }
+    }
+    #menu {
+        transform: translateY(0);
+    }
+}
+
+#header.top-fixed {
+    .logo .brand img { height: 56px; }
+}
+/******************** SESSAO 1 HOME ********************/
+.sessao-1-home{
+    background: url(assets/img/bkg.png);
+    h2{
+        font-size: 38px;
+        font-family: $Spectral;
+        font-weight: 200;
+    }
+    #home-cursos-carousel{
+        .owl-next{
+            right: -90px;
+            top: 40%;
+            position: absolute;
+            font-size: 60px;
+        }
+        .owl-prev{
+            left: -90px;
+            top: 40%;
+            font-size: 60px;
+            position: absolute;
+        }
+        .owl-dots {
+          position: absolute;
+          width: 100%;
+          bottom: -26px;
+          text-align: center;
+        }
+
+        .owl-dots .owl-dot {
+          background: #fff;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+          margin-right: 12px;
+          transition: background .2s ease-in-out;
+        }
+
+        .owl-dots .owl-dot.active {
+          background: $verde;
+        }
+        .item{
+            background: $white;
+            .conteudo{
+                text-align: center;
+                padding: 15px;
+                .titulo{
+                    font-family: $Open;
+                    font-weight: 700;
+                    font-size: 17px;
+                    margin-bottom: 5px;
+                }
+                span{
+                    color: $verde;
+                    font-family: $Spectral;
+                    font-style: italic;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                .date{
+                    color: #777777;
+                    font-size: 14px;
+                    font-family: $Open;
+                }
+                hr{
+                    width: 15%;
+                    border-top-width: 3px;
+                }
+            }
+        }
+        figure.fit{
+            padding-bottom: 75%;
+        }
+    }
+    .btn-green{
+        margin-top: 30px;
+        font-family: $Open;
+    }
+}
+/******************** SESSAO 2 HOME ********************/
+.sessao-2-home{
+    background-color: $verde;
+    h2{
+        font-size: 38px;
+        font-family: $Spectral;
+        font-weight: 200;
+        color: $white;
+    }
+    p{
+        color: #dadfc8;
+        font-family: $Open;
+    }
+    .btn-yellow{
+        margin-top: 30px;
+    }
+    .box-conteudo{
+        padding-top: 50px;
+    }
+}
+/******************** SESSAO 3 HOME ********************/
+.sessao-3-home{
+    background-color: $Cinza;
+    h2{
+        font-size: 38px;
+        font-family: $Spectral;
+        font-weight: 200;
+    }
+    .box-post-big{
+        figure.fit{
+            padding-bottom: 60%;
+            margin-bottom: 20px;
+        }
+        .infos{
+            span{
+                color: $verde;
+                font-size: 17px;
+                font-family: $Spectral;
+                font-style: italic;
+            }
+            h2{
+                font-size: 22px;
+                font-family: $Open;
+                margin-top: 10px;
+            }
+            p{
+                color: #777777;
+                font-size: 16px;
+            }
+        }
+    }
+    .box-post-small{
+        .noticia{
+            margin-bottom: 60px;
+        }
+        figure.fit{
+            padding-bottom: 40%;
+            margin-bottom: 20px;
+        }
+        .infos{
+            span{
+                color: $verde;
+                font-size: 17px;
+                font-family: $Spectral;
+                font-style: italic;
+            }
+            h2{
+                font-size: 22px;
+                font-family: $Open;
+                margin-top: 10px;
+            }
+            p{
+                color: #777777;
+                font-size: 16px;
+            }
+        }
+    }
+    .btn-green{
+        margin-top: 30px;
+        font-family: $Open;
+    }
+}
+/******************** CTA HOME ********************/
+.cta-home{
+    p{
+        color: $white;
+        font-family: $Open;
+    }
+    h2{
+        color: $white;
+        font-family: $Spectral;
+        font-size: 35px;
+        font-weight: 200;
+    }
+    form{
+        display: flex;
+        margin-top: 30px;
+        .form-group {
+            margin-bottom: 0;
+            margin-right: 15px;
+            flex-grow: 1;
+            .form-control {
+                border-color: #fff;
+                border-radius: 0;
+                height: 40px;
+            }
+        }
+    }
+}
+/******************** FOOTER ********************/
+footer{
+    background: #1d1d1b;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    p{
+        color: #858585;
+        font-size: 15px;
+    }
+    .tel{
+        color: $white;
+    }
+    .menu-footer{
+        li{
+            list-style: none;
+            margin-bottom: 20px;
+            a{
+                color: $white;
+                font-size: 15px;
+                &:hover{
+                    color: $Amarelo;
+                }
+            }
+        }
+    }
+    .social {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+
+        .social-icon {
+            margin: 0 10px;
+            background-color: $verde;
+            color: $white;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 24px;
+            &:hover{
+                background-color: $Amarelo;
+            }
+        }
+    }
+}
+/******************** TOP BANNER ********************/
+.top-banner-page{
+    h2{
+        font-family: $Spectral;
+        font-weight: 200;
+        color: $white;
+        font-size: 50px;
+    }
+    p{
+        font-family: $Spectral;
+        color: #858585;
+        font-weight: 200;
+        font-style: italic;
+        font-size: 18px;
+    }
+    .texto-banner{
+        padding-top: 100px;
+    }
+}
+/******************** COACHES ********************/
+.sessao-coaches{
+    
+    .bloco-coach{
+        &:nth-child(even){
+            .foto{
+                float: right;
+            }
+        }
+        margin-bottom: 50px;
+        h3{
+            color: $verde;
+            font-family: $Spectral;
+            font-size: 35px;
+            font-weight: 200;
+        }
+        p{
+            font-size: 16px;
+            color: #777777;
+        }
+    }
+    .infos{
+        padding: 50px;
+    }
+}
+/******************** SESSAO CURSOS PAGE ********************/
+.sessao-cursos-page{
+    background-color: $Cinza;
+    .item{
+        background: $white;
+        margin-bottom: 30px;
+        .conteudo{
+            text-align: center;
+            padding: 15px;
+            .titulo{
+                font-family: $Open;
+                font-weight: 700;
+                font-size: 17px;
+                margin-bottom: 5px;
+            }
+            span{
+                color: $verde;
+                font-family: $Spectral;
+                font-style: italic;
+                font-size: 16px;
+                font-weight: 400;
+            }
+            .date{
+                color: #777777;
+                font-size: 14px;
+                font-family: $Open;
+            }
+            hr{
+                width: 15%;
+                border-top-width: 3px;
+            }
+        }
+    }
+    figure.fit{
+        padding-bottom: 75%;
+    }
+    
+    .btn-green{
+        margin-top: 30px;
+        font-family: $Open;
+    }
+}
+/******************** SESSAO BLOG PAGE ********************/
+.sessao-main-blog{
+    .post-big{
+        figure.fit{
+            padding-bottom: 60%;
+            margin-bottom: 20px;
+        }
+        .infos{
+            span{
+                color: $verde;
+                font-size: 17px;
+                font-family: $Spectral;
+                font-style: italic;
+            }
+            h2{
+                font-size: 22px;
+                font-family: $Open;
+                margin-top: 10px;
+            }
+            p{
+                color: #777777;
+                font-size: 16px;
+            }
+        }
+    }
+    aside{
+        .box-aside{
+            margin-bottom: 50px;
+            h3{
+                font-family: $Spectral;
+                font-weight: 200;
+            }
+            ul{
+                padding: 0;
+                li{
+                    list-style: none;
+                    margin-bottom: 20px;
+                    a{
+                        color: $verde;
+                        font-size: 16px;
+                        font-weight: 700;
+                        &:hover{
+                            color: $Amarelo;
+                        }
+                    }
+                }
+            }
+        }
+        .busca {
+          align-items: center; 
+          form {
+                width: 100%; 
+            }
+            .form-group {
+                float: left;
+                width: 100%;
+                margin-right: -46px;
+                margin-bottom: 0; 
+            }
+            .form-control {
+              padding: 12px 16px;
+              padding-right: 46px;
+              border: 1px solid #ccc;
+              border-radius: 0;
+              box-shadow: initial;
+              height: 45px;
+              font-size: 14px;
+              transition: border-color 0.2s ease-in-out; 
+            }
+            button {
+                color: $black;
+                background: transparent;
+                border: 0;
+                padding: 0;
+                width: 46px;
+                height: 46px; 
+            }
+        }
+    }
+}
+/******************** SESSAO BLOG PAGE ********************/
+.sessao-posts-blog{
+    .noticia{
+        margin-bottom: 60px;
+    }
+    figure.fit{
+        padding-bottom: 80%;
+        margin-bottom: 20px;
+    }
+    .infos{
+        span{
+            color: $verde;
+            font-size: 17px;
+            font-family: $Spectral;
+            font-style: italic;
+        }
+        h2{
+            font-size: 22px;
+            font-family: $Open;
+            margin-top: 10px;
+        }
+        p{
+            color: #777777;
+            font-size: 16px;
+        }
+    }
+    hr{
+        border-top: solid 1px $verde;
+        margin-bottom: 0;
+    }
+    .sap{
+        width: 20%;
+        height: 7px;
+        background: $verde;
+        display: block;
+        margin: 0px auto;
+        position: relative;
+        bottom: 5px;
+    }
+    .carregar-mais-btn{
+        font-family: $Spectral;
+        text-transform: uppercase;
+    }
+}
+/******************** SESSAO CONTATO PAGE ********************/
+.sessao-contato-page{
+    h3{
+        font-family: $Spectral;
+        font-size: 26px;
+        font-weight: 200;
+    }
+    form{
+        .form-control{
+            border-radius: 0;
+            border-color: $verde;
+        }
+        ::-webkit-input-placeholder {
+           color: $verde;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+           color: $verde;  
+        }
+
+        ::-moz-placeholder {  /* Firefox 19+ */
+           color: $verde;  
+        }
+
+        :-ms-input-placeholder {  
+           color: $verde;  
+        }
+    }
+    .infos{
+        .tit{
+            color: $verde;
+            font-family: $Spectral;
+            font-size: 20px;
+        }
+        p{
+            margin-bottom: 30px;
+        }
+        .social {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+
+            .social-icon {
+                &:first-child {
+                    margin-left: 0;
+                }
+                margin: 0 10px;
+                background-color: $text;
+                color: $white;
+                padding: 5px;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                font-size: 24px;
+                &:hover{
+                    background-color: $Amarelo;
+                }
+            }
+        }
+    }
+}
+
+.sessao-faq-page{
+    .panel-group .panel{
+        border-radius: 0;
+        border: none;
+        margin-bottom: 20px;
+    }
+    .lista .panel-group .panel-default .panel-heading h4 a:after {
+        font-family: sans-serif;
+        font-weight: 100;
+        content: '+';
+        width: 36px;
+        height: 36px;
+        line-height: 34px;
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -18px;
+        font-size: 36px;
+        padding-left: 1px;
+        color: $verde;
+    }
+
+    .lista .panel-group .panel-default .panel-heading h4 a[aria-expanded^=true] {
+        color: $verde;
+    }
+
+    .lista .panel-group .panel-default .panel-heading h4 a[aria-expanded^=true]:after {
+        font-weight: 300;
+        content: '-';
+        border-color: #1bae9c;
+        line-height: 28px
+    }
+    .lista .panel-group .panel-default .panel-heading h4 a {
+        width: 100%;
+        display: inline-block;
+        color: $text;
+        font-size: 16px;
+        padding-right: 50px;
+        font-weight: 100;
+        position: relative;
+        line-height: 1.5;
+    }
+}
+/******************** SESSAO DEPOIMENTOS PAGE ********************/
+.sessao-depoimentos{
+    .noticia{
+        margin-bottom: 60px;
+    }
+    figure.fit{
+        padding-bottom: 80%;
+        margin-bottom: 20px;
+    }
+    .infos{
+        span{
+            color: $verde;
+            font-size: 17px;
+            font-family: $Spectral;
+            font-style: italic;
+        }
+        h2{
+            font-size: 22px;
+            font-family: $Open;
+            margin-top: 10px;
+        }
+        p{
+            color: #777777;
+            font-size: 16px;
+        }
+    }
+    hr{
+        border-top: solid 1px $verde;
+        margin-bottom: 0;
+    }
+    .sap{
+        width: 20%;
+        height: 7px;
+        background: $verde;
+        display: block;
+        margin: 0px auto;
+        position: relative;
+        bottom: 5px;
+    }
+    .carregar-mais-btn{
+        font-family: $Spectral;
+        text-transform: uppercase;
+    }
+}
+/******************** SESSAO QUEM SOMS PAGE ********************/
+.sessao-quem-1{
+    h3{
+        font-family: $Spectral;
+        font-size: 35px;
+        font-weight: 200;
+    }
+    span{
+        font-family: $Spectral;
+        color: $verde;
+        font-size: 23px;
+    }
+    p{
+        font-size: 18px;
+        color: #777777;
+    }
+}
+.sessao-quem-2{
+    background-color: #eeeeee;
+    h3{
+        color: $verde;
+        font-family: $Spectral;
+        font-weight: 200;
+    }
+    p{
+        color: #777777;
+        font-size: 16px;
+    }
+}
+.sessao-quem-3{
+    h3{
+        font-family: $Spectral;
+        font-size: 23px;
+        font-weight: 200;
+        color: $verde;
+    }
+    p{
+        color: #777777;
+        font-size: 16px;
+    }
+}
+/******************** RESPONSIVE ********************/
+@media (max-width: 767px){
+    .cta-home form{
+        display: block;
+    }
+    .cta-home form .form-group{
+        margin-bottom: 15px;
+    }
+    footer{
+        text-align: center;
+        .text-right{
+            text-align: center;
+        }
+        .menu-footer{
+            padding: 0;
+        }
+        img{
+            margin-bottom: 20px;
+        }
+        .social{
+            display: inline-flex;
+        }
+    }
+    .bloco-coach .foto{
+        text-align: center;
+        float: none !important;
+    }
+    .sessao-quem-2 h3{
+        text-align: center;
+    }
+    .sessao-quem-2 img{
+        margin: 0px auto;
+        display: block;
+    }
+    .sessao-quem-2 p{
+        margin-bottom: 20px;
+    }
+    .sessao-quem-3 h3{
+        margin-top: 15px;
+    }
+}

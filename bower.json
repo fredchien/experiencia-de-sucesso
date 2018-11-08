@@ -1,0 +1,18 @@
+{
+  "name": "experiencia-de-sucesso",
+  "description": "Novo site institucional Experiencia de Sucesso.",
+  "main": "index.html",
+  "authors": [
+    "Frederic Chien"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/fredchien/experiencia-de-sucesso",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets",
+    "test",
+    "tests"
+  ]
+}
